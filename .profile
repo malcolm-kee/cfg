@@ -1,4 +1,4 @@
-
+# Git Aliases
 alias gad='git add'
 alias gbr='git branch'
 alias gco='git checkout'
