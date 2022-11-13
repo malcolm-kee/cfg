@@ -1,15 +1,39 @@
+#!/bin/sh
+# Commonly used
+alias c='clear'
+alias pnr='pnpm run'
+alias yr='yarn run'
+
 # Git Aliases
 alias gad='git add'
 alias gbr='git branch'
 alias gco='git checkout'
 alias gst='git rev-parse --git-dir > /dev/null 2>&1 && git status || ll'
 alias gcm='git commit'
-alias gpl='git pull'
+alias gff='git pull --ff-only'
 alias gsw='git switch'
 
-alias pnr='pnpm run'
+# Utilities
+alias jj='pbpaste | jsonpp | pbcopy'
+alias jjj='pbpaste | jsonpp | jq'
 
-function take {
-    mkdir -p $1
-    cd $1
+take() {
+    mkdir -p "$1"
+    cd "$1" || exit
+}
+
+note() {
+    if [ $# -eq 0 ]; then
+        if [ -f "$HOME/drafts.txt" ]; then
+            cat "$HOME/drafts.txt"
+        else
+            echo 'No current note.'
+        fi
+    else
+        {
+            echo "date: $(date)"
+            echo "$@"
+            echo ""
+        } >> "$HOME/drafts.txt";
+    fi
 }
