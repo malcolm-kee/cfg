@@ -8,9 +8,12 @@ alias yr='yarn run'
 alias gad='git add'
 alias gbr='git branch'
 alias gco='git checkout'
-alias gst='git rev-parse --git-dir > /dev/null 2>&1 && git status || ll'
 alias gcm='git commit'
 alias gff='git pull --ff-only'
+alias gnb='git switch -c' # create new branch
+alias gp='git push'
+alias gph='git push -u origin HEAD'
+alias gst='git rev-parse --git-dir > /dev/null 2>&1 && git status || ll'
 alias gsw='git switch'
 
 # Utilities
