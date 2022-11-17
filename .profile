@@ -2,13 +2,15 @@
 # Commonly used
 alias c='clear'
 alias pnr='pnpm run'
+alias pnf='pnpm --filter'
+alias pni='pnpm install'
 alias yr='yarn run'
 
 # Git Aliases
 alias gad='git add'
 alias gbr='git branch'
 alias gco='git checkout'
-alias gcm='git commit'
+alias gcm='git commit -m'
 alias gff='git pull --ff-only'
 alias gnb='git switch -c' # create new branch
 alias gp='git push'
@@ -38,5 +40,15 @@ note() {
             echo "$@"
             echo ""
         } >> "$HOME/drafts.txt";
+    fi
+}
+
+gdf() {
+    if git rev-parse --verify main; then
+        git switch main
+    elif git rev-parse --verify master; then
+        git switch master
+    else
+        echo "No default branch found"
     fi
 }
