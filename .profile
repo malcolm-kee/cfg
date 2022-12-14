@@ -12,6 +12,7 @@ alias gbr='git branch'
 alias gco='git checkout'
 alias gcm='git commit -m'
 alias gff='git remote prune origin && git pull --ff-only'
+alias glg='git log --oneline -15'
 alias gnb='git switch -c' # create new branch
 alias gp='git push'
 alias gph='git push -u origin HEAD'
