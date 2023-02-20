@@ -5,6 +5,7 @@ alias pnr='pnpm run'
 alias pnf='pnpm --filter'
 alias pni='pnpm install'
 alias yr='yarn run'
+alias h='history -1000 | grep'
 
 # Git Aliases
 alias gad='git add'
