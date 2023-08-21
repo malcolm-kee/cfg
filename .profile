@@ -54,3 +54,19 @@ gdf() {
         echo "No default branch found"
     fi
 }
+
+vcompress() {
+    outputName="${1%.*}_s"; # exclude file extension and add _s postfix
+
+    while [ -f "${outputName}.mp4" ]
+    do
+      outputName="${outputName}s"
+    done
+
+    ffmpeg -i "$1" -vcodec libx264 -crf 28 "${outputName}.mp4";
+
+    originalFileSizeMb=$(wc -c "$1" | awk '{print $1/1000/1000}')
+    finalFileSizeMb=$(wc -c "${outputName}.mp4" | awk '{print $1/1000/1000}')
+
+    echo "Generated ${outputName}.mp4 - ${finalFileSizeMb%.*}MB (original: ${originalFileSizeMb%.*}MB)"
+}
