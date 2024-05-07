@@ -18,7 +18,11 @@ alias gnb='git switch -c' # create new branch
 alias gp='git push'
 alias gph='git push -u origin HEAD'
 alias gst='git rev-parse --git-dir > /dev/null 2>&1 && git status || ll'
-alias gsw='git switch'
+
+gsw() {
+    git fetch origin "$1:$1"
+    git switch "$1"
+}
 
 # Utilities
 alias jj='pbpaste | jsonpp | pbcopy'
